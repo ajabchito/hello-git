@@ -17,11 +17,11 @@ jobs:
       
       - name: Setup python
       - uses: actions/setup-python@v5
-      with:
+     with:
         python-version: '3.11'
-        
+       
       - name: Run script
-           run: python ./Roadmap/stats.py
+      run: python ./Roadmap/stats.py
 
         -name: Commit and Push changes
           uses: stefanzweifel/git-auto-commit-action@v7
