@@ -6,6 +6,7 @@ on:
 
 jobs:
   build:
+    if: github.repository == 'mouredev/roadmap-retos-programacion' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
 
     permissions:
@@ -27,6 +28,6 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: Update stats
-          commit_user_name: ajabchito  [GitHub Actions]
+          commit_user_name: ajabchito [GitHub Actions]
           commit_user_email: ajabchito@gmail.com
           commit_author: ajabchito <ajabchito@gmail.com>
