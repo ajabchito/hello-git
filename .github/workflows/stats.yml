@@ -1,33 +1,35 @@
-name: Stats
 
-on:
-  schedule:
-    - cron: '0 0 * * *'
-  workflow_dispatch:
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    permissions:
-      contents: write
-
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
-
-      - name: Setup python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-
-      - name: Run script
-        run: python ./workflows/stats.py
-
-      - name: Commit and Push changes
-        uses: stefanzweifel/git-auto-commit-action@v7
-        with:
-          commit_message: Update stats
-          commit_user_name: ajabchito [Git Action]
-          commit_user_email: ajabchito@gmail.com
-          commit_author: ajabchito
+  name: Stats
+  
+  on:
+    workflow_dispatch:
+  
+    schedule:
+      - cron: '0 0 * * *'
+  
+  jobs:
+    build:
+      runs-on: ubuntu-latest
+  
+      permissions:
+        contents: write
+  
+      steps:
+        - name: Checkout repo
+          uses: actions/checkout@v4
+  
+        - name: Setup Python
+          uses: actions/setup-python@v5
+          with:
+            python-version: '3.11'
+  
+        - name: Run script
+          run: python ./.github/workflows/stats.py
+  
+        - name: Commit and Push changes
+          uses: stefanzweifel/git-auto-commit-action@v7
+          with:
+            commit_message: "Update stats"
+            commit_user_name: "ajabchito [Git Action]"
+            commit_user_email: "ajabchito@gmail.com"
+            commit_author: "ajabchito"
